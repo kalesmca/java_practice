@@ -5,13 +5,13 @@ public class QuerySum {
         int[][] query = {{1,3,2},{2,5,3},{5,6,-1}};
         int n =7;
         int[] input = new int[n];
-        for(int i=0;i<query.length;i++){
-            int s = query[i][0];
-            int e = query[i][1];
-            int v = query[i][2];
-            input[s] +=v;
-            if(e<n-1){
-                input[e+1] -= v;
+        for (int[] ints : query) {
+            int s = ints[0];
+            int e = ints[1];
+            int v = ints[2];
+            input[s] += v;
+            if (e < n - 1) {
+                input[e + 1] -= v;
             }
         }
         int[] prefix = new int[n];
@@ -20,7 +20,7 @@ public class QuerySum {
             prefix[i] = prefix[i-1]+input[i];
 
         }
-        System.out.println("Reulst = ");
+        System.out.println("Result = ");
         for(int i=0;i<n;i++){
             System.out.print(" "+prefix[i]);
         }
